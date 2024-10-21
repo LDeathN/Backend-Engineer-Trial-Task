@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-from financial_data.stock_data.models import StockData
+from stock_data.models import StockData
 
 
 def get_stock_data(symbol):
