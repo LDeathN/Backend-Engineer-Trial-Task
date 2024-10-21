@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'stock_data',
+    'django_q',
 ]
 
 MIDDLEWARE = [
@@ -126,3 +127,34 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        '': {
+            'handlers': ['console'],
+            'level': 'INFO',
+        },
+    },
+}
+
+Q_CLUSTER = {
+    'workers': 4,
+    'retry': 60,
+    'timeout': 60,
+    'schedule': [
+        {
+            'name': 'fetch_stock_data',
+            'func': 'stock_data.management.commands.fetch_stock_data.Command.handle',
+            'schedule_type': 'D',
+        },
+    ],
+    'orm': 'default',
+}
+
