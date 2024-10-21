@@ -21,5 +21,5 @@ This project is a Django-based backend system designed to fetch financial data, 
 ### Setup
 1. Clone the repository:
    ```bash
-   git clone https://github.com/LDeathN/your-repo-name.git
-   cd your-repo-name
+   git clone https://github.com/LDeathN/Backend-Engineer-Trial-Task.git
+   cd Backend-Engineer-Trial-Task
