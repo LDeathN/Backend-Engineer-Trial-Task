@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'stock_data',
     'django_q',
     'rest_framework',
+    'environ',
 ]
 
 MIDDLEWARE = [
